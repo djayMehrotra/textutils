@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+import About from './components/About';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar title='Text Utils2' aboutTextUtils='About text utils'/> {/* props are properties */}
+      {/* <Navbar/> */} {/* props are properties */}
+      {/* porps are not to be changed and used as read only */}
+
+      <TextForm heading='Enter the text to analyze below'/>
+      <About/>
+      
+    </>
   );
 }
 
 export default App;
+
+
+/* control application from app.js for eg dark mode light mode */
