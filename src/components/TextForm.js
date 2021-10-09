@@ -22,6 +22,7 @@ export default function TextForm(props) {
         let text = document.getElementById('myBox');
         text.select();
         navigator.clipboard.writeText(text.value); // text+=text;
+        document.getSelection().removeAllRanges();
         props.showAlert('copied to clipboard', 'success');
     }
     
@@ -48,15 +49,15 @@ export default function TextForm(props) {
                     {/* normal variable will not be updated here as by default react doesnt watch all variables */}
                     {/* listen event onchange event we will get */}
                     </div>
-                    <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to uppercase</button>
-                    <button className="btn btn-primary mx-1" onClick={handleCopyBoard}>Copy to clipboard</button>
-                    <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>Remove extra space</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1" onClick={handleUpClick}>Convert to uppercase</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1" onClick={handleCopyBoard}>Copy to clipboard</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1" onClick={handleExtraSpace}>Remove extra space</button>
                 </div>
                 <div className="my-3">
                 </div>
                 <h1>Your text summary</h1>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{(text.split(" ").length)*0.08} minutes to read</p>
+                <p>{text.split(" ").filter( element => element.length !==0 ).length} words and {text.length} characters</p>
+                <p>{(text.split(" ").filter( element => element.length !==0 ).length)*0.08} minutes to read</p>
                 <h2>Preview text</h2>
                 <p>{text}</p>
             </div>
