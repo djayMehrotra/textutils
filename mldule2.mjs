@@ -4,4 +4,4 @@ const c='akash';
 const d= 'priya';
 
 export default c;
-export {d};
+export {d}//comment added to show edit feature
